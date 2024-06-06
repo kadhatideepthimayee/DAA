@@ -1,0 +1,12 @@
+def long_palindrome(s):
+    def is_palindrome(s):
+        return s == s[::-1]
+    longest_palindrome = ""
+    for i in range(len(s)):
+        for j in range(i, len(s)):
+            sub=s[i:j+1]
+            if is_palindrome(sub) and len(sub) > len(longest_palindrome):
+                longest_palindrome = sub
+    return longest_palindrome
+s = "babad"
+print(long_palindrome(s))  

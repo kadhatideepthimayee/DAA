@@ -1,0 +1,11 @@
+def longest_substring_without_repeating_characters(s: str) -> int:
+    index = {}
+    start = max_len = 0
+    for end, char in enumerate(s):
+        if char in index and index[char] >= start:
+            start = index[char] + 1
+        index[char] = end
+        max_len = max(max_len, end - start + 1)
+    return max_len
+s = "abcabcbb"
+print(longest_substring_without_repeating_characters(s))  
